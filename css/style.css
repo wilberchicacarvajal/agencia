@@ -5,7 +5,8 @@
     --light-yellow: #ffee80;
     --black: #130f40;
     --light-color: #666;
-    border: .1rem solid rgba (0, 0, 0, .1);
+    --border: .1rem solid rgba (0, 0, 0, .1);
+    --box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
 }
 
 *{
@@ -81,6 +82,18 @@ html{
     display: none;
 }
 
+.header.active{
+    box-shadow: var(--box-shadow);
+    padding: 2rem 9%;
+}
+
+#menubar{
+    display: none;
+    font-size: 2.5rem;
+    color: var(--light-color);
+    cursor: pointer;
+}
+
 
 
 
@@ -98,15 +111,53 @@ html{
 
 
 @media(max-width: 768px){
-    html{
-        font-size: 55%;
-    }
+   .header #login-btn i{
+    display: block;
+   }
+
+   .header #login-btn .btn{
+    display: none;
+   }
+
+   .header .navbar{
+    position: absolute;
+    top: 99%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: var(--border);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+   }
+
+   .header .navbar.active{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+   }
+   
+   .header .navbar a{
+    display: block;
+    margin: 2rem;
+    font-size: 2rem;
+   }
+
+   #menubar {
+    display: block;
+   }
+
+   #menubar.fa-xmark{
+    transform: rotate(180deg);
+   }
+
+   .header.active{
+    padding: 2rem;
+   }
 }
+
+
 
 
 @media(max-width: 450px){
     html{
-        font-size: 55%;
+        font-size: 50%;
     }
 }
 
